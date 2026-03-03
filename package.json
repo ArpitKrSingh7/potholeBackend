@@ -9,7 +9,8 @@
     "watch": "tsx watch src/server.ts",
     "check": "tsc --noEmit",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "postinstall": "prisma generate"
   },
   "keywords": [],
   "author": "",
