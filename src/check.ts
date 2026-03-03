@@ -1,4 +1,5 @@
-const SERVER_URL = "http://localhost:3000/api/potholes/report";
+const SERVER_URL =
+  "https://potholebackend-ew5n.onrender.com/api/potholes/report";
 
 // Real data from good5_sensors.csv (Smooth Road)
 const realGoodRoadData = [

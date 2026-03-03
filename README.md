@@ -67,7 +67,7 @@ The system follows a **microservices architecture** with two independently deplo
 | **Package Mgr** | pnpm                                               |
 | **Entry Point** | `src/server.ts`                                    |
 | **Build**       | `tsc` → `dist/server.js`                           |
-| **Backend URL** | _TBD (will be updated after deployment)_           |
+| **Backend URL** | https://potholebackend-ew5n.onrender.com           |
 
 **Responsibilities:**
 
@@ -560,7 +560,7 @@ This runs the compiled `dist/server.js`.
 | Service             | Platform | URL                                                 |
 | ------------------- | -------- | --------------------------------------------------- |
 | **ML Microservice** | Render   | https://potholepredictionmodel.onrender.com/predict |
-| **Express API**     | TBD      | _Will be updated after deployment_                  |
+| **Express API**     | Render   | https://potholebackend-ew5n.onrender.com            |
 | **Database**        | TBD      | PostgreSQL (cloud-hosted)                           |
 
 ---
