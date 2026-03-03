@@ -6,12 +6,14 @@ interface Config {
   port: number;
   nodeEnv: string;
   postgresDBURL: string;
+  mlapiurl: string;
 }
 
 const config: Config = {
   port: Number(process.env.PORT) || 3000,
   nodeEnv: process.env.NODE_ENV || "development",
   postgresDBURL: process.env.POSTGRESDBURL || "",
+  mlapiurl: process.env.ML_API_URL || "",
 };
 
 export default config;

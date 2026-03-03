@@ -1,7 +1,6 @@
-// src/services/ml.service.ts
+import config from "../config/config";
 
-// The port FastAPI will run on
-const ML_API_URL = "http://127.0.0.1:8000/predict";
+const ML_API_URL = config.mlapiurl;
 
 export const analyzeSensorData = async (
   sensorData: any[],
