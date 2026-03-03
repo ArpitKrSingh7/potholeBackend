@@ -1,5 +1,8 @@
 import express, { type Application } from "express";
-import { reportPothole, allPotholes } from "./controllers/pothole.controller";
+import {
+  reportPothole,
+  allPotholes,
+} from "./controllers/pothole.controller.js";
 
 const app: Application = express();
 
