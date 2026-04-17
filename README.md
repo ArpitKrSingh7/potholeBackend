@@ -74,7 +74,8 @@ The system follows a **microservices architecture** with two independently deplo
 - Receives pothole report requests from the React Native mobile app
 - Validates incoming sensor data (minimum 50 readings required) and GPS coordinates
 - Proxies sensor data to the Python ML microservice for prediction
-- Stores confirmed pothole detections (with GPS coordinates and severity/confidence) in PostgreSQL
+- **Spatial Clustering (± 5m)**: Confirmed potholes within 5 meters of an existing report are clustered, increasing the severity of the existing entry rather than duplicating.
+- Stores confirmed pothole detections (with GPS coordinates and accumulated severity score) in PostgreSQL
 - Serves all detected potholes for map rendering on the mobile app
 
 ### 2. ML Prediction Microservice (Python)
