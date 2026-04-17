@@ -51,7 +51,8 @@ def process_and_predict(json_str):
         df['accel_rolling_std'] = df['accel_magnitude'].rolling(window, min_periods=1).std()
         df['gyro_rolling_std'] = df['gyro_magnitude'].rolling(window, min_periods=1).std()
         
-        df['speed_norm_accel'] = df['accel_magnitude'] / (df['speed'] + 0.1)
+        safe_speed = df['speed'].clip(lower=2.0)
+        df['speed_norm_accel'] = df['accel_magnitude'] / safe_speed
         df['impact_score'] = df['accel_magnitude'] * df['gyro_magnitude']
         df['z_gyro_combo'] = np.abs(df['accelerometerZ']) * df['gyro_magnitude']
 

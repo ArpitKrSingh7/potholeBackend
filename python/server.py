@@ -43,6 +43,12 @@ def create_lbp_histogram(lbp_codes, bins=8, radius=1):
     return hist
 
 # 3. Create the API Endpoint
+
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the Pothole Detection ML Microservice! Send POST requests to /predict with sensor data."}
+
+
 @app.post("/predict")
 async def predict(payload: List[Dict[str, Any]]):
     try:
@@ -60,7 +66,8 @@ async def predict(payload: List[Dict[str, Any]]):
         df['accel_rolling_std'] = df['accel_magnitude'].rolling(window, min_periods=1).std()
         df['gyro_rolling_std'] = df['gyro_magnitude'].rolling(window, min_periods=1).std()
         
-        df['speed_norm_accel'] = df['accel_magnitude'] / (df['speed'] + 0.1)
+        safe_speed = df['speed'].clip(lower=2.0)
+        df['speed_norm_accel'] = df['accel_magnitude'] / safe_speed
         df['impact_score'] = df['accel_magnitude'] * df['gyro_magnitude']
         df['z_gyro_combo'] = np.abs(df['accelerometerZ']) * df['gyro_magnitude']
 

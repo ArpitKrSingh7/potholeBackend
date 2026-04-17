@@ -5,7 +5,15 @@ import { prisma } from "../lib/prisma.js";
 export const reportPothole = async (req: Request, res: Response) => {
   try {
     // 1. Grab the data from the mobile app's incoming request
-    const { latitude, longitude, sensorData } = req.body;
+    const { latitude, longitude, sensorData, isValidDrivingSession } = req.body;
+
+    if (isValidDrivingSession === false) {
+      return res.status(200).json({
+        success: true,
+        message: "Ignored stationary/invalid data.",
+        confidence: 0,
+      });
+    }
 
     // 2. The Bouncer: Did they send enough data?
     // (Your model's sequence_length is 50, so we need at least 50 readings)
