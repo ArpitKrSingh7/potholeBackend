@@ -33,7 +33,7 @@ A **microservices-based backend** for real-time pothole detection using smartpho
 ```
 ┌──────────────────────┐       ┌──────────────────────────┐       ┌──────────────────────┐
 │                      │       │                          │       │                      │
-│   React Native App   │──────▶│   Express API Server     │──────▶│  ML Microservice     │
+│   React Native App   │──────▶│   Express API Server     │──────▶│  ML MicroService     │
 │   (Mobile Client)    │◀──────│   (Node.js / TypeScript) │◀──────│  (Python / FastAPI)  │
 │                      │       │                          │       │                      │
 └──────────────────────┘       └────────────┬─────────────┘       └──────────────────────┘
